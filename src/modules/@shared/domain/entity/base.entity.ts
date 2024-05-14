@@ -19,7 +19,7 @@ export class BaseEntity {
         return this._createdAt
     }
 
-    get updateAt(): Date {
+    get updatedAt(): Date {
         return this._updatedAt
     }
 }
