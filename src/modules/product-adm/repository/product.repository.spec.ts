@@ -5,7 +5,7 @@ import { ProductModel } from "./product.model";
 import { ProductRepository } from "./product.repository";
 
 
-describe("ProductRepository integration tests", () => {
+describe("ProductRepository unit tests", () => {
     let sequelize!: Sequelize;
 
     beforeEach(async () => {
