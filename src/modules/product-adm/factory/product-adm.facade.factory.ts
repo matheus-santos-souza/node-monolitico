@@ -3,6 +3,7 @@ import { ProductRepository } from "../repository/product.repository";
 import { AddProductUseCase } from "../usecase/add-product/add-product.usecase";
 import { FindStockUseCase } from "../usecase/find-stock/find-stock.usecase";
 
+
 export class ProductAdmFacadeFactory {
     static create(): ProductAdmFacade {
         const productRepository = new ProductRepository();

@@ -1,7 +1,8 @@
-import { Id } from "../../@shared/domain/value-object/id.value-object";
+import { Id } from "src/modules/@shared/domain/value-object/id.value-object";
 import { Product } from "../domain/product.entity";
 import { IProductGateway } from "../gateway/product.gateway.interface";
 import { ProductModel } from "./product.model";
+
 
 export class ProductRepository implements IProductGateway {
     async add(product: Product): Promise<void> {

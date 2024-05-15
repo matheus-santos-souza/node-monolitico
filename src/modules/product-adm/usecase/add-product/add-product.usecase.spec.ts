@@ -2,6 +2,7 @@ import { IProductGateway } from "../../gateway/product.gateway.interface"
 import { IAddProductInputDto } from "./add-product.dto"
 import { AddProductUseCase } from "./add-product.usecase"
 
+
 describe("AddProductUseCase unit test", () => {
     let mockRepository: () => IProductGateway
 

@@ -1,8 +1,9 @@
-import { IAggregateRoot } from "../../@shared/domain/entity/aggregate-root.interface";
-import { BaseEntity } from "../../@shared/domain/entity/base.entity";
-import { Id } from "../../@shared/domain/value-object/id.value-object";
+import { IAggregateRoot } from "src/modules/@shared/domain/entity/aggregate-root.interface";
+import { BaseEntity } from "src/modules/@shared/domain/entity/base.entity";
+import { Id } from "src/modules/@shared/domain/value-object/id.value-object";
 
-type ProductProps = {
+
+type TProductProps = {
     id?: Id;
     name: string;
     description: string;
@@ -18,7 +19,7 @@ export class Product extends BaseEntity implements IAggregateRoot {
     private _purchasePrice: number;
     private _stock: number;
 
-    constructor(props: ProductProps) {
+    constructor(props: TProductProps) {
         super(props.id)
         this._name = props.name;
         this._description = props.description;

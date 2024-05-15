@@ -1,14 +1,16 @@
-import { IUseCase } from "../../@shared/usecase/use-case.interface";
-import { IAddProductInputDto, IAddProductOutputDto } from "../usecase/add-product/add-product.dto";
-import { IFindStockInputDto, IFindStockOutputDto } from "../usecase/find-stock/find-stock.dto";
-import { IAddProductFacadeInputDto, ICheckProductFacadeInputDto, ICheckProductFacadeOutputDto } from "./product-adm.facade.dto";
-import { IProductAdmFacade } from "./product-adm.facade.interface";
+import { IAddProductInputDto } from "../usecase/add-product/add-product.dto"
+import { IFindStockInputDto } from "../usecase/find-stock/find-stock.dto"
+import { IAddProductFacadeInputDto, ICheckProductFacadeInputDto, ICheckProductFacadeOutputDto } from "./product-adm.facade.dto"
+import { IProductAdmFacade } from "./product-adm.facade.interface"
+import { AddProductUseCase } from "../usecase/add-product/add-product.usecase"
+import { FindStockUseCase } from "../usecase/find-stock/find-stock.usecase"
+
 
 
 export class ProductAdmFacade implements IProductAdmFacade {
     constructor(
-        private readonly addUseCase: IUseCase<IAddProductInputDto, IAddProductOutputDto>,
-        private readonly stockUseCase: IUseCase<IFindStockInputDto, IFindStockOutputDto>
+        private readonly addUseCase: AddProductUseCase,
+        private readonly stockUseCase: FindStockUseCase
     ) {}
 
     async addProduct(input: IAddProductFacadeInputDto): Promise<void> {

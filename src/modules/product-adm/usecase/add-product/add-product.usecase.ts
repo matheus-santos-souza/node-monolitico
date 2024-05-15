@@ -1,7 +1,8 @@
-import { Id } from "../../../@shared/domain/value-object/id.value-object";
-import { Product } from "../../domain/product.entity";
-import { IProductGateway } from "../../gateway/product.gateway.interface";
-import { IAddProductInputDto, IAddProductOutputDto } from "./add-product.dto";
+import { Id } from "src/modules/@shared/domain/value-object/id.value-object"
+import { Product } from "../../domain/product.entity"
+import { IProductGateway } from "../../gateway/product.gateway.interface"
+import { IAddProductInputDto, IAddProductOutputDto } from "./add-product.dto"
+
 
 export class AddProductUseCase {
     constructor(
