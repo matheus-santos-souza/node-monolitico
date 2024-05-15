@@ -12,8 +12,8 @@ export class ProductRepository implements IProductGateway {
             description: product.description,
             purchasePrice: product.purchasePrice,
             stock: product.stock,
-            createdAt: new Date(),
-            updatedAt: new Date(),
+            createdAt: product.createdAt,
+            updatedAt: product.updatedAt,
         });
     }
     

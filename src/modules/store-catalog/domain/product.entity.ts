@@ -2,7 +2,6 @@ import { IAggregateRoot } from "src/modules/@shared/domain/entity/aggregate-root
 import { BaseEntity } from "src/modules/@shared/domain/entity/base.entity";
 import { Id } from "src/modules/@shared/domain/value-object/id.value-object";
 
-
 type TProductProps = {
     id: Id
     name: string

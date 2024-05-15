@@ -1,4 +1,4 @@
-import { Sequelize } from "sequelize-typescript"
+import { Sequelize, UpdatedAt } from "sequelize-typescript"
 import { Id } from "src/modules/@shared/domain/value-object/id.value-object";
 import { Product } from "../domain/product.entity";
 import { ProductModel } from "./product.model";
@@ -31,7 +31,9 @@ describe("ProductRepository unit tests", () => {
             name: "Product 1",
             description: "description 1",
             purchasePrice: 100,
-            stock: 10
+            stock: 10,
+            createdAt: new Date(),
+            updatedAt: new Date()
         })
         const productRepository = new ProductRepository();
         await productRepository.add(product);
