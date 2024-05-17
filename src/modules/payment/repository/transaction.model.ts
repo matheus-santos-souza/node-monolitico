@@ -1,22 +1,22 @@
 import { Column, DataType, Model, PrimaryKey, Table } from "sequelize-typescript";
 
 @Table({
-    tableName: "clients",
+    tableName: "payments",
     timestamps: false
 })
-export class ClientModel extends Model<ClientModel> {
+export class TransactionModel extends Model<TransactionModel> {
     @PrimaryKey
     @Column({ allowNull: false, type: DataType.STRING })
     declare id: string;
 
-    @Column({ allowNull: false, type: DataType.STRING })
-    declare name: string;
+    @Column({ allowNull: false, type: DataType.STRING, field: "order_id" })
+    declare orderId: string;
+
+    @Column({ allowNull: false, type: DataType.NUMBER })
+    declare amount: number;
 
     @Column({ allowNull: false, type: DataType.STRING })
-    declare email: string;
-
-    @Column({ allowNull: false, type: DataType.STRING })
-    declare address: string;
+    declare status: string;
 
     @Column({ allowNull: false, type: DataType.DATE, field: "created_at" })
     declare createdAt: Date;

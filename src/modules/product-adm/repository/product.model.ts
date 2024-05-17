@@ -21,9 +21,9 @@ export class ProductModel extends Model<ProductModel> {
     @Column({ allowNull: false, type: DataType.NUMBER })
     declare stock: number;
 
-    @Column({ allowNull: false, type: DataType.DATE })
+    @Column({ allowNull: false, type: DataType.DATE, field: "created_at" })
     declare createdAt: Date;
 
-    @Column({ allowNull: false, type: DataType.DATE })
+    @Column({ allowNull: false, type: DataType.DATE, field: "updated_at" })
     declare updatedAt: Date;
 }

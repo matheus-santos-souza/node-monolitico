@@ -15,6 +15,6 @@ export class ProductModel extends Model<ProductModel> {
     @Column({ allowNull: false, type: DataType.STRING })
     declare description: string;
 
-    @Column({ allowNull: false, type: DataType.NUMBER })
+    @Column({ allowNull: false, type: DataType.NUMBER, field: "sales_price" })
     declare salesPrice: number;
 }
