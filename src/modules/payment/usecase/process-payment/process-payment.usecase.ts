@@ -1,6 +1,6 @@
 import { IUseCase } from "src/modules/@shared/usecase/use-case.interface";
 import { IProcessPaymentInputDto, IProcessPaymentOutputDto } from "./process-payment.usecase.dto";
-import { IPaymentGateway } from "../../gatewey/payment.gateway";
+import { IPaymentGateway } from "../../gateway/payment.gateway";
 import { Transaction } from "../../domain/transaction";
 
 export class ProcessPaymentUseCase implements IUseCase<IProcessPaymentInputDto, IProcessPaymentOutputDto> {

@@ -1,5 +1,5 @@
 import { Transaction } from "../domain/transaction";
-import { IPaymentGateway } from "../gatewey/payment.gateway";
+import { IPaymentGateway } from "../gateway/payment.gateway";
 import { TransactionModel } from "./transaction.model";
 
 export class TransactionRepository implements IPaymentGateway {

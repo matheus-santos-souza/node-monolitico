@@ -1,6 +1,6 @@
 import { Id } from "src/modules/@shared/domain/value-object/id.value-object";
 import { Transaction } from "../../domain/transaction";
-import { IPaymentGateway } from "../../gatewey/payment.gateway";
+import { IPaymentGateway } from "../../gateway/payment.gateway";
 import { ProcessPaymentUseCase } from "./process-payment.usecase";
 import { IProcessPaymentInputDto } from "./process-payment.usecase.dto";
 

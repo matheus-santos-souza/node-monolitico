@@ -1,6 +1,7 @@
 import { IUseCase } from "src/modules/@shared/usecase/use-case.interface";
 import { IFindClientInputDto, IFindClientOutputDto } from "./find-client.usecase.dto";
 import { IClientGateway } from "../../gateway/client.gateway";
+import Address from "src/modules/@shared/domain/value-object/address.value-object";
 
 export class FindClientUseCase implements IUseCase<IFindClientInputDto, IFindClientOutputDto> {
     constructor(
@@ -18,7 +19,15 @@ export class FindClientUseCase implements IUseCase<IFindClientInputDto, IFindCli
             id: client.id.id,
             name: client.name,
             email: client.email,
-            address: client.address,
+            document: client.document,
+            address: new Address(
+                client.address.street,
+                client.address.number,
+                client.address.complement,
+                client.address.city,
+                client.address.state,
+                client.address.zipCode,
+            ),
             createdAt: client.createdAt,
             updatedAt: client.updatedAt
         }

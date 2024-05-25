@@ -3,6 +3,7 @@ import { Client } from "../../domain/client.entity";
 import { IClientGateway } from "../../gateway/client.gateway";
 import { IFindClientInputDto } from "./find-client.usecase.dto";
 import { FindClientUseCase } from "./find-client.usecase";
+import Address from "src/modules/@shared/domain/value-object/address.value-object";
 
 class ClientRepositoryMock implements IClientGateway {
     add = jest.fn();
@@ -20,7 +21,15 @@ describe("FindClientUseCase unit test", () => {
             id: new Id("1"),
             email: "email@email.com",
             name: "Client 1",
-            address: "Address 1",
+            document: "1234-5678",
+            address: new Address(
+                "Rua 123",
+                99,
+                "Casa Verde",
+                "Criciúma",
+                "SC",
+                "88888-888",
+            ),
             createdAt: new Date(),
             updatedAt: new Date()
         })
@@ -36,7 +45,8 @@ describe("FindClientUseCase unit test", () => {
         expect(output.id).toBe(client.id.id)
         expect(output.name).toBe(client.name)
         expect(output.email).toBe(client.email)
-        expect(output.address).toBe(client.address)
+        expect(output.document).toBe(client.document)
+        expect(output.address).toStrictEqual(client.address)
         expect(output.createdAt).toBe(client.createdAt)
         expect(output.updatedAt).toBe(client.updatedAt)
     })

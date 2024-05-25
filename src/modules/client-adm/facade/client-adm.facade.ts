@@ -13,6 +13,7 @@ export class ClientAdmFacade implements IClientAdmFacade {
         const client = await this.addClientUseCase.execute({
             name: input.name,
             email: input.name,
+            document: input.document,
             address: input.address
         })
 
@@ -20,6 +21,7 @@ export class ClientAdmFacade implements IClientAdmFacade {
             id: client.id,
             name: client.name,
             email: client.email,
+            document: client.document,
             address: client.address,
             createdAt: client.createdAt,
             updatedAt: client.updatedAt,
@@ -35,6 +37,7 @@ export class ClientAdmFacade implements IClientAdmFacade {
             id: client.id,
             name: client.name,
             email: client.email,
+            document: client.document,
             address: client.address,
             createdAt: client.createdAt,
             updatedAt: client.updatedAt,

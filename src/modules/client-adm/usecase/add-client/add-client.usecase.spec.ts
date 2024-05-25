@@ -1,3 +1,4 @@
+import Address from "src/modules/@shared/domain/value-object/address.value-object";
 import { IClientGateway } from "../../gateway/client.gateway";
 import { AddClientUseCase } from "./add-client.usecase";
 import { IAddClientInputDto } from "./add-client.usecase.dto";
@@ -19,7 +20,15 @@ describe("AddClientUseCase unit test", () => {
         const input: IAddClientInputDto = {
             name: "Client 1",
             email: "email@email.com",
-            address: "Address 1"
+            document: "1234-5678",
+            address: new Address(
+                "Rua 123",
+                99,
+                "Casa Verde",
+                "Criciúma",
+                "SC",
+                "88888-888"
+            )
         }
 
         const output = await useCase.execute(input)
