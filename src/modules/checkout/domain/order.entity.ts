@@ -8,6 +8,8 @@ type TOrderProps = {
     client: Client;
     products: Product[];
     status?: string;
+    createdAt?: Date;
+    updatedAt?: Date;
 }
 
 export class Order extends BaseEntity {
@@ -16,7 +18,7 @@ export class Order extends BaseEntity {
     private _status?: string;
 
     constructor(props: TOrderProps) {
-        super(props.id)
+        super(props.id, props.createdAt, props.updatedAt)
         this._client = props.client;
         this._products = props.products;
         this._status = props.status || "pending";
