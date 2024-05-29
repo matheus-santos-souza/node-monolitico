@@ -4,16 +4,16 @@ import { MigrationFn } from 'umzug';
 export const up: MigrationFn<Sequelize> = async ({ context: sequelize }) => {
   await sequelize.getQueryInterface().createTable('products', {
     id: {
-      type: DataTypes.STRING(255),
+      type: DataTypes.STRING,
       primaryKey: true,
       allowNull: false
     },
     name: {
-      type: DataTypes.STRING(255),
+      type: DataTypes.STRING,
       allowNull: false
     },
     description: {
-      type: DataTypes.STRING(255),
+      type: DataTypes.STRING,
       allowNull: false
     },
     purchasePrice: {
@@ -22,7 +22,8 @@ export const up: MigrationFn<Sequelize> = async ({ context: sequelize }) => {
     },
     salesPrice: {
       type: DataTypes.NUMBER,
-      allowNull: true
+      allowNull: true,
+      field: "sales_price"
     },
     stock: {
         type: DataTypes.NUMBER,

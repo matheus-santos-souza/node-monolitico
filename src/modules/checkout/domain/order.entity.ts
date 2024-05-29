@@ -2,11 +2,12 @@ import { Id } from "src/modules/@shared/domain/value-object/id.value-object"
 import { Client } from "./client.entity";
 import { Product } from "./product.entity";
 import { BaseEntity } from "src/modules/@shared/domain/entity/base.entity";
+import { OrderProduct } from "./order-product.entity";
 
 type TOrderProps = {
     id?: Id;
     client: Client;
-    products: Product[];
+    products: OrderProduct[];
     status?: string;
     createdAt?: Date;
     updatedAt?: Date;
@@ -14,7 +15,7 @@ type TOrderProps = {
 
 export class Order extends BaseEntity {
     private _client: Client;
-    private _products: Product[];
+    private _products: OrderProduct[];
     private _status?: string;
 
     constructor(props: TOrderProps) {
@@ -32,7 +33,7 @@ export class Order extends BaseEntity {
         return this._client
     }
 
-    get products(): Product[] {
+    get products(): OrderProduct[] {
         return this._products
     }
 

@@ -10,6 +10,7 @@ import { Client } from "../../domain/client.entity";
 import { Order } from "../../domain/order.entity";
 import { IPaymentFacade } from "src/modules/payment/facade/payment.facade.interface";
 import { IInvoiceFacade } from "src/modules/invoice/facade/invoice.facade.interface";
+import { OrderProduct } from "../../domain/order-product.entity";
 
 export class PlaceOrderUseCase implements IUseCase<IPlaceOrderInputDto, IPlaceOrderOutputDto> {
     constructor(
@@ -43,7 +44,13 @@ export class PlaceOrderUseCase implements IUseCase<IPlaceOrderInputDto, IPlaceOr
 
         const order = new Order({
             client: myClient,
-            products
+            products: products.map(product => {
+                return new OrderProduct({
+                    name: product.name,
+                    productId: product.id.id,
+                    salesPrice: product.salesPrice
+                })
+            })
         })
 
         const payment = await this.paymentFacade.process({
@@ -81,7 +88,7 @@ export class PlaceOrderUseCase implements IUseCase<IPlaceOrderInputDto, IPlaceOr
             total: order.total,
             products: order.products.map(product => {
                 return {
-                    productId: product.id.id
+                    productId: product.productId
                 }
             }),
         }

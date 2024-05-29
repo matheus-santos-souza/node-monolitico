@@ -2,15 +2,25 @@ import { SequelizeFactory } from "src/infra/database/sequelize/factory/sequelize
 import { httpServer } from "../../app";
 import request from 'supertest'
 import { Sequelize } from "sequelize-typescript";
+import { Umzug } from "umzug";
+import { migrator } from "src/test-migrations/config-migrations/migrator";
 
 describe("E2E test for Product", () => {
-    let sequelize: Sequelize
+    let sequelize: Sequelize;
+    let migration: Umzug<any>;
 
     beforeEach(async () => {
-        sequelize = await SequelizeFactory.create();
+        const database = await SequelizeFactory.createMigrator();
+        sequelize = database.sequelize
+        migration = database.migration
     })
 
     afterAll(async () => {
+        if (!migration || !sequelize) {
+            return 
+        }
+        migration = migrator(sequelize)
+        await migration.down()
         await sequelize.close()
     })
 
@@ -31,5 +41,13 @@ describe("E2E test for Product", () => {
         expect(response.body.purchasePrice).toBe(10)
         expect(response.body.createdAt).toBeDefined()
         expect(response.body.updatedAt).toBeDefined()
+    })
+
+    it("Should throw error create product", async () => {
+        const response = await request(httpServer)
+            .post('/product')
+            .send({})
+        
+        expect(response.status).toBe(500)  
     })
 })

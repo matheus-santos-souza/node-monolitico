@@ -2,6 +2,7 @@ import { SequelizeStorage, Umzug } from "umzug"
 import { join } from "path"
 import { Sequelize } from "sequelize"
 
+
 export const migrator = (
   sequelize: Sequelize
 ) => {

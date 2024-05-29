@@ -29,6 +29,7 @@ export class AddProductUseCase {
                 updatedAt: product.updatedAt
             }
         } catch (error) {
+            console.log(error)
             throw new Error(error)
         }
         

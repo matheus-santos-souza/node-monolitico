@@ -1,11 +1,11 @@
 import { Id } from "src/modules/@shared/domain/value-object/id.value-object";
 import { Product } from "../domain/product.entity";
 import { IProductGateway } from "../gateway/product.gateway";
-import { ProductModel } from "./product.model";
+import { ProductStoreCatalogModel } from "./product.model";
 
 export class ProductRepository implements IProductGateway {
     async findAll(): Promise<Product[]> {
-        const products = await ProductModel.findAll()
+        const products = await ProductStoreCatalogModel.findAll()
 
         return products.map((product) => {
             return new Product({
@@ -18,7 +18,7 @@ export class ProductRepository implements IProductGateway {
     }
 
     async find(id: string): Promise<Product> {
-        const product = await ProductModel.findOne({
+        const product = await ProductStoreCatalogModel.findOne({
             where: { id }
         })
 

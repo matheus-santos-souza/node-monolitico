@@ -43,4 +43,12 @@ describe("E2E test for Client", () => {
         expect(response.body.createdAt).toBeDefined()
         expect(response.body.updatedAt).toBeDefined()
     })
+
+    it("Should throw error create client", async () => {
+        const response = await request(httpServer)
+            .post('/client')
+            .send({})
+        
+        expect(response.status).toBe(500)  
+    })
 })

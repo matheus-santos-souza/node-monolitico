@@ -26,7 +26,6 @@ export class ClientController {
             const output = await usecase.execute(input);
             res.send(output);
         } catch (error) {
-            console.log(error)
             res.status(500).send(error)
         }
     }

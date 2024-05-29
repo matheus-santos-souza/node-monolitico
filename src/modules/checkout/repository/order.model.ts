@@ -1,6 +1,6 @@
 import { BelongsTo, Column, DataType, ForeignKey, HasMany, Model, PrimaryKey, Table } from "sequelize-typescript";
 import { ClientModel } from "src/modules/client-adm/repository/client.model";
-import { ProductModel } from "src/modules/store-catalog/repository/product.model";
+import { OrderProductModel } from "./order-product.model";
 
 @Table({
     tableName: "orders",
@@ -24,8 +24,8 @@ export class OrderModel extends Model<OrderModel> {
     @BelongsTo(() => ClientModel)
     declare client: ClientModel
 
-    @HasMany(() => ProductModel)
-    declare products: ProductModel[];
+    @HasMany(() => OrderProductModel)
+    declare products: OrderProductModel[];
 
     @Column({ allowNull: false, type: DataType.DATE, field: "created_at" })
     declare createdAt: Date;
