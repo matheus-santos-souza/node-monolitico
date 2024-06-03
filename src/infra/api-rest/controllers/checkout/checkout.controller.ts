@@ -10,11 +10,10 @@ export class CheckoutController {
                 clientId: req.body.clientId,
                 products: req.body.products
             }
-            console.log(input)
             const output = await usecase.execute(input);
             res.send(output);
         } catch (error) {
-            console.log(error)
+            console.log('CheckoutController', error)
             res.status(500).send(error)
         }
     }

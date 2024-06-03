@@ -41,8 +41,9 @@ export const up: MigrationFn<Sequelize> = async ({ context: sequelize }) => {
     },
 
   })
+  await sequelize.sync();
 };
 
 export const down: MigrationFn<Sequelize> = async ({ context: sequelize }) => {
-  await sequelize.getQueryInterface().dropTable('products')
+  await sequelize.getQueryInterface().dropAllTables()
 } 

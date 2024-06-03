@@ -3,7 +3,7 @@ import { httpServer } from "../../app";
 import request from 'supertest'
 import { Sequelize } from "sequelize-typescript";
 import { Umzug } from "umzug";
-import { migrator } from "src/test-migrations/config-migrations/migrator";
+import { migrator } from "src/infra/database/sequelize/test-migrations/config-migrations/migrator";
 
 describe("E2E test for Product", () => {
     let sequelize: Sequelize;
@@ -15,7 +15,7 @@ describe("E2E test for Product", () => {
         migration = database.migration
     })
 
-    afterAll(async () => {
+    afterEach(async () => {
         if (!migration || !sequelize) {
             return 
         }

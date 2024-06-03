@@ -1,6 +1,6 @@
 import { Sequelize } from "sequelize-typescript";
 import { InvoiceItemModel } from "src/modules/invoice/repository/invoice-tem.model";
-import { migrator } from "src/test-migrations/config-migrations/migrator";
+import { migrator } from "src/infra/database/sequelize/test-migrations/config-migrations/migrator";
 import { ClientModel } from "src/modules/client-adm/repository/client.model";
 import { ProductModel } from "src/modules/product-adm/repository/product.model";
 import { OrderProductModel } from "src/modules/checkout/repository/order-product.model";

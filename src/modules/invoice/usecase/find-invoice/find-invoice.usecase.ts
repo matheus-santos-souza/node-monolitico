@@ -35,6 +35,7 @@ export class FindInvoiceUseCase implements IUseCase<IFindInvoiceUseCaseInputDTO,
                     price: item.price
                 }
             })
+            
         }
     } 
 }
