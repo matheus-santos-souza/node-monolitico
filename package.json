@@ -9,8 +9,7 @@
     "build": "npx tsc",
     "test": "jest",
     "test:watch": "jest --watchAll",
-    "test:cov": "jest --coverage",
-    "test:api:e2e": "jest --config ./src/infra/api-rest/tests/jest-e2e.json"
+    "test:cov": "jest --coverage"
   },
   "keywords": [],
   "author": "",

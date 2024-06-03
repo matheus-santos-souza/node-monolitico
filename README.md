@@ -6,7 +6,7 @@ Este projeto contém os seguintes scripts para facilitar o desenvolvimento, comp
 
 No diretório do projeto, você pode executar os seguintes comandos:
 
-### `npm start`
+### `npm run dev`
 
 Inicia a aplicação em modo de desenvolvimento. Este comando irá transpilar e assistir o arquivo `src/main.ts` para mudanças.
 
@@ -25,7 +25,3 @@ Executa os testes unitários em modo de observação, ou seja, os testes serão 
 ### `npm run test:cov`
 
 Executa os testes unitários e gera um relatório de cobertura de código usando o framework Jest.
-
-### `npm run test:api:e2e`
-
-Executa os testes end-to-end da api.
